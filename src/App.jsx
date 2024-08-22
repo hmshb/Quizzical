@@ -11,8 +11,10 @@ export default function App() {
   const [resultData, setResultData] = useState(0)
   const [questions, setQuestions] = useState([])
   const [newGame, setNewGame] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(function(){
+    setIsLoading(true)
     fetch('https://opentdb.com/api.php?amount=5&category=9&difficulty=easy&type=multiple')
     .then(res => res.json())
     .then(data => {
@@ -24,6 +26,7 @@ export default function App() {
           answer: random([...e.incorrect_answers.map((e,index)=> (
             {id: index+1, choice: e, isCorrect: false, isSelected: false})),
             {id: 4, choice: e.correct_answer, isCorrect: true, isSelected: false}])})))
+            setIsLoading(false)
       })
      
   },[newGame])
@@ -72,6 +75,19 @@ export default function App() {
   return (
      isStarted ?
      <main>
+        {
+          isLoading ? <div className='flex justify-center'>
+          <ThreeDots 
+            height="80" 
+            width="100" 
+            radius="9" 
+            color="#293264" 
+            ariaLabel="three-dots-loading" 
+            wrapperStyle={{}} 
+            wrapperClassName="" 
+            visible={true} /> 
+            </div> 
+            :
             <div>
             {renderQuestions}
               <div className='flex items-center justify-center p-4'>
@@ -80,10 +96,10 @@ export default function App() {
               onClick={isEnded? newGameFunc : endGame }>{isEnded? 'Play Again' : 'Check answers'}</button>
               </div>
             </div>
+        }
      </main>
      : <MainScreen
       handleClick = {startGame}
     />
   )
 }
-
