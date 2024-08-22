@@ -1,5 +1,19 @@
-# Quizzical
-Solved solo project of React Basics from [Scrimba](https://scrimba.com/learn/frontend/react-section-4-solo-project-co24f49bea8aace7c174082c8). It helped me learn many things mainly useState and useEffect in ReactJS
+# Quizzical: A React-Based Quiz App
 
-# Demo
-Live demo [link](https://quizzical159.netlify.app/)
+### Project Description
+
+Quizzical is developed using React. It offers a user-friendly interface for engaging in quizzes and provides valuable feedback on performance.
+
+### Key Features
+
+- **Dynamic Question Generation**: The app generates a variety of questions to keep quizzes engaging and challenging.
+- **Interactive User Interface**: Users can easily navigate through questions and provide answers in a clear and intuitive manner.
+- **Comprehensive Feedback**: Users receive detailed feedback on their answers, including correct responses and explanations.
+- **Scoring System**: The app accurately tracks user scores and provides a final score at the end of the quiz.
+
+### Technologies Used
+
+- **React**: The core framework for building the user interface and managing application state.
+- **JavaScript**: For handling the app's logic, interactions, and data manipulation.
+- **Tailwind CSS**: A utility-first CSS framework for efficient styling and theming.
+- **Vite**: A build tool for rapid development and optimized production builds.
